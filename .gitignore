@@ -1,0 +1,5 @@
+# the collection and its downloads never go in git
+logs/*.log
+logs/*-latest
+.transmission/
+__pycache__/
