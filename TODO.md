@@ -7,6 +7,7 @@
 - [ ] 1b. `dosbox-staging` through nog: blocked by a chaotic-aur 404 on two-day-old lists; nog's answer is a full `nog update` (Javier's call), or the patch's own installer may make it moot
 
 ## Then
+- [ ] `scripts/exo-check.sh`: compare the NVIDIA driver version with the Flatpak GL extension (`org.freedesktop.Platform.GL.nvidia-*`); mismatch after a `nog update` = games won't start until `flatpak update --user -y` (eXo ReadMe, Troubleshooting). Today both are 615.71.09.
 - [ ] Check exogui (Electron) under Sway/Wayland
 - [ ] Decide: official patch route vs Exodium (native launcher, 0.15.4 on 2026-10-15)
 - [ ] exogui 1.1.11 (bundled) vs 1.2.58 (GitHub): try the newer AppImage in `exogui/`
