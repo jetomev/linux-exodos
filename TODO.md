@@ -3,8 +3,7 @@
 *Kept current as we go. Newest at the top of each list.*
 
 ## Next
-- [ ] 7. Javier plays Monkey Island (CD version = 3 in DOSBox's menu) and says how it feels: sound, speed, window, mouse
-- [ ] 6. A game started from exogui's Play button (so far every step ran from our scripts); check what exogui needs on Sway for that
+- [ ] 6. A game started from exogui's Play button (#7); so far every step ran from our scripts
 - [ ] 1b. `dosbox-staging` through nog: blocked by a chaotic-aur 404 on two-day-old lists; nog's answer is a full `nog update` (Javier's call), or the patch's own installer may make it moot
 
 ## Then
@@ -15,6 +14,7 @@
 - [ ] Full release later, on a healthier disk or after an 18-hour write/read test of this one
 
 ## Done
+- [x] 2026-10-16 16:45 **Javier: "game ran perfectly"** (Monkey Island CD, 34 min, MT-32 music). #4 closed, #7 opened for the exogui Play button
 - [x] 2026-10-16 16:43 Monkey Island session ended cleanly after 34 min (exit 0; DOSBox used the MT-32 ROMs for music: "MT32: LCD-Message: Lucasfilm Games")
 - [x] 2026-10-16 16:09 **First game.** `scripts/exo-play.sh mi1`: downloaded 1.65 GB from the torrent in <3 min, unpacked, DOSBox ECE r4482 (eXo Flatpak) opened Monkey Island's version menu. Two driver fixes on the way (`change any of these?` → No; the version menu → IBM/VGA)
 - [x] 2026-10-16 15:46 exogui runs on Sway (XWayland): 7,667 games listed; `docs/images/2026-10-16-exogui-first-launch.png`
