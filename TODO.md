@@ -15,6 +15,7 @@
 - [ ] Full release later, on a healthier disk or after an 18-hour write/read test of this one
 
 ## Done
+- [x] 2026-10-16 16:43 Monkey Island session ended cleanly after 34 min (exit 0; DOSBox used the MT-32 ROMs for music: "MT32: LCD-Message: Lucasfilm Games")
 - [x] 2026-10-16 16:09 **First game.** `scripts/exo-play.sh mi1`: downloaded 1.65 GB from the torrent in <3 min, unpacked, DOSBox ECE r4482 (eXo Flatpak) opened Monkey Island's version menu. Two driver fixes on the way (`change any of these?` → No; the version menu → IBM/VGA)
 - [x] 2026-10-16 15:46 exogui runs on Sway (XWayland): 7,667 games listed; `docs/images/2026-10-16-exogui-first-launch.png`
 - [x] 2026-10-16 15:44 `scripts/exo-setup.sh`: "Your eXoPacks are now setup" (windowed 1280x960, aspect on, no icon)
