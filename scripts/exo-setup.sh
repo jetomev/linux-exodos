@@ -14,7 +14,7 @@ if [[ ! " $* " =~ " --size " ]]; then
   if [ "$h" -ge 2000 ]; then s=L; elif [ "$h" -ge 1080 ]; then s=M; else s=S; fi
   args+=(--size "$s"); echo "-- screen height $h → size $s" | tee -a "$LOG"
 fi
-python3 -I "$P/scripts/exo-setup-driver.py" "$X" "$LOG" "${args[@]}"; rc=$?
+python3 -I "$P/scripts/exo-driver.py" --mode setup "$X/eXo/util" "./Setup eXoDOS.bsh" "$LOG" "${args[@]}"; rc=$?
 echo "-- driver exit $rc" | tee -a "$LOG"
 ls "$X"/exogui.command "$X"/eXo/util/*.SEL 2>&1 | tee -a "$LOG"
 [ $rc = 0 ] && echo "OK $(date '+%F %T')" | tee -a "$LOG" || echo "FAILED $(date '+%F %T')" | tee -a "$LOG"

@@ -13,7 +13,7 @@ The collection is built for Windows: its front end (the program you browse the g
 | What | Size | Files | Notes |
 |---|---|---|---|
 | eXoDOS full (`eXoDOS.torrent`) | **697.6 GB** | 14,011 | The site says 638 GB; the torrent file says 697.6 GB. Everything, offline forever. Biggest single games are 4 to 6.5 GB each (Gabriel Knight 2, Phantasmagoria, Links LS). |
-| eXoDOS Lite (`eXoDOS_Lite.torrent`) | **6.6 GB** | 11 | The front end, the catalog and the art for every game. Each game is downloaded from eXo's servers the first time you play it. Needs internet. |
+| eXoDOS Lite (`eXoDOS_Lite.torrent`) | **6.6 GB** | 11 | The front end, the catalog and the art for every game. Each game is fetched the first time you play it: **not from a server, but as one file out of the full torrent** (`eXo/util/install.bsh` runs eXo's aria2c Flatpak with `--select-file=<index>` against `eXo/util/aria/eXoDOS.torrent`, index in `index.txt`). Needs internet and torrent peers. |
 | Linux patch (`LinuxPatcheXoDOS.torrent`) | **2.7 GB** | 10 | Goes on top of either of the above. Contains `eXoDOS Linux ReadMe.txt`, `Setup eXoDOS.command`, Linux versions of the metadata and the utilities. |
 | Media Add-On Pack | 220 GB (site) | | Magazines, books, catalogs, soundtracks, TV shows. Optional. Has its own Linux bits inside. |
 | Manual | 10 MB PDF | | `eXoDOS Manual.pdf`, also inside the Lite torrent. |
@@ -74,6 +74,10 @@ SMART on 2026-10-16: overall PASSED, but 129,825 hours on (14.8 years), **167 pe
 - Game names contain spaces, commas, apostrophes, `!` and `$` (`$100,000 Pyramid (1988).zip`, `!dos`, `!DOSmetadata.zip`). Any filesystem that handles those; NTFS is fine for the data but bad for git (no permissions, no symlinks) and the `.command` scripts need the executable bit.
 - ext4 is the boring reliable choice for a torrent landing zone. btrfs only buys something if we go the eisoDOS Win9x route (reflinks).
 - The collection must not live inside the git repo; the repo holds our scripts, docs and findings, `.gitignore` keeps the collection out.
+
+## Installed and running (2026-10-16 15:45)
+
+`scripts/exo-install-dependencies.sh` (10 min: 7 runtimes + 21 eXo Flatpaks, 8.9 GB on the disk, NVIDIA GL extension pulled automatically) → `scripts/exo-setup.sh` (9 min, "Your eXoPacks are now setup. Enjoy!", windowed 1280x960, aspect on) → `exogui.command` opens through XWayland on Sway: 7,667 games listed, search, filters, playlists. Screenshot: `docs/images/2026-10-16-exogui-first-launch.png`. The collection is 29 GB on the disk after setup. exogui bundled with the patch is 1.1.11 (the GitHub release is 1.2.58).
 
 ## Open questions
 
