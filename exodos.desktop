@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=eXoDOS
+GenericName=DOS games collection
+Comment=7,600+ DOS games, ready to play (exogui front end)
+Exec=/mnt/exodos/eXoDOS/exogui.command
+Icon=/mnt/exodos/eXoDOS/eXo/util/exodos.png
+Terminal=false
+Categories=Game;Emulator;
+Keywords=dos;dosbox;retro;games;exo;
+StartupNotify=false

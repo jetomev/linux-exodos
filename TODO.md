@@ -14,6 +14,7 @@
 - [ ] Full release later, on a healthier disk or after an 18-hour write/read test of this one
 
 ## Done
+- [x] 2026-10-16 17:00 eXoDOS in the application launcher (Javier asked): `exodos.desktop` in the repo (Categories=Game, eXo's icon), linked by `scripts/exo-install-launcher.sh` into `~/.local/share/applications` → hypeForge's Games group
 - [x] 2026-10-16 16:50 Javier: "window may be too small" → `scripts/exo-display.sh fullscreen` (eXo's own FULL.SEL marker + options_linux.conf); `windowed [small|medium|large]` flips it back; Alt+Enter in a game toggles
 - [x] 2026-10-16 16:45 **Javier: "game ran perfectly"** (Monkey Island CD, 34 min, MT-32 music). #4 closed, #7 opened for the exogui Play button
 - [x] 2026-10-16 16:43 Monkey Island session ended cleanly after 34 min (exit 0; DOSBox used the MT-32 ROMs for music: "MT32: LCD-Message: Lucasfilm Games")

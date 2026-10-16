@@ -15,7 +15,7 @@
 | Path | What |
 |---|---|
 | `docs/research/` | What we learned, newest first. Start with [2026-10-16-exodos-on-linux.md](docs/research/2026-10-16-exodos-on-linux.md). |
-| `scripts/` | Everything we ran. Each one logs to `logs/`. `format-exodos-disk.sh` made the disk · `torrent-start.sh` / `torrent-status.sh` the downloads · `exo-install-dependencies.sh` → `exo-setup.sh` → `exo-play.sh <game>` the eXo steps, with `exo-driver.py` answering eXo's questions · `exo-display.sh fullscreen|windowed` the screen default · `torrent-info.py` reads a `.torrent`. |
+| `scripts/` | Everything we ran. Each one logs to `logs/`. `format-exodos-disk.sh` made the disk · `torrent-start.sh` / `torrent-status.sh` the downloads · `exo-install-dependencies.sh` → `exo-setup.sh` → `exo-play.sh <game>` the eXo steps, with `exo-driver.py` answering eXo's questions · `exo-display.sh fullscreen|windowed` the screen default · `exo-install-launcher.sh` puts eXoDOS in the desktop's app launcher (Games) · `torrent-info.py` reads a `.torrent`. |
 | `torrents/` | The exact `.torrent` files we used (Lite, full, Linux patch), from retro-exo.com on 2026-10-16. |
 | `TODO.md` | The live list. |
 
