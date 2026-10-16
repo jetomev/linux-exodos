@@ -15,13 +15,13 @@
 | Path | What |
 |---|---|
 | `docs/research/` | What we learned, newest first. Start with [2026-10-16-exodos-on-linux.md](docs/research/2026-10-16-exodos-on-linux.md). |
-| `scripts/` | Everything we ran. Each one logs to `logs/`. `format-exodos-disk.sh` made the disk; `torrent-info.py` reads a `.torrent` file's size and contents. |
+| `scripts/` | Everything we ran. Each one logs to `logs/`. `format-exodos-disk.sh` made the disk · `torrent-start.sh` / `torrent-status.sh` the downloads · `exo-install-dependencies.sh` → `exo-setup.sh` → `exo-play.sh <game>` the eXo steps, with `exo-driver.py` answering eXo's questions · `exo-display.sh fullscreen|windowed` the screen default · `torrent-info.py` reads a `.torrent`. |
 | `torrents/` | The exact `.torrent` files we used (Lite, full, Linux patch), from retro-exo.com on 2026-10-16. |
 | `TODO.md` | The live list. |
 
 ## Status
 
-**Started 16 October 2026.** Research done, disk formatted, Lite + Linux patch downloading. Nothing plays yet.
+**16 October 2026: it plays.** Research, disk, Lite + Linux patch, the eXo dependencies (21 Flatpaks on the disk), setup, exogui on Sway, and The Secret of Monkey Island in DOSBox ECE, all the same afternoon. Javier: "game ran perfectly". Next: a game from exogui's own Play button ([#7](https://github.com/jetomev/linux-exodos/issues/7)).
 
 ## Credits
 

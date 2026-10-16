@@ -14,6 +14,7 @@
 - [ ] Full release later, on a healthier disk or after an 18-hour write/read test of this one
 
 ## Done
+- [x] 2026-10-16 16:50 Javier: "window may be too small" → `scripts/exo-display.sh fullscreen` (eXo's own FULL.SEL marker + options_linux.conf); `windowed [small|medium|large]` flips it back; Alt+Enter in a game toggles
 - [x] 2026-10-16 16:45 **Javier: "game ran perfectly"** (Monkey Island CD, 34 min, MT-32 music). #4 closed, #7 opened for the exogui Play button
 - [x] 2026-10-16 16:43 Monkey Island session ended cleanly after 34 min (exit 0; DOSBox used the MT-32 ROMs for music: "MT32: LCD-Message: Lucasfilm Games")
 - [x] 2026-10-16 16:09 **First game.** `scripts/exo-play.sh mi1`: downloaded 1.65 GB from the torrent in <3 min, unpacked, DOSBox ECE r4482 (eXo Flatpak) opened Monkey Island's version menu. Two driver fixes on the way (`change any of these?` → No; the version menu → IBM/VGA)
@@ -31,6 +32,7 @@
 - [x] 2026-10-16 SMART on the WD My Book: PASSED but 167 pending + 150 uncorrectable sectors, 129,825 h → Lite only (Javier's call)
 
 ## Decisions
+- D-5 (2026-10-16, Javier) Fullscreen by default: eXo's window sizes top out at 1280x960 below the 2560x1920 that is taller than his 1440 screens.
 - D-3 (2026-10-16) Setup answers, in `scripts/exo-setup.sh`: adult games stay listed (filter in exogui, nothing is deleted either way) · windowed first (the Updater can flip it) · aspect correction on · no desktop icon · window size from Sway's screen height. Flags `--fullscreen`, `--hide-adult`, `--size` change them.
 - D-4 (2026-10-16) The patch's Flatpaks are strictly needed (21 eXo builds hard-wired per game, F-1); they live on the project disk via `~/.local/share/flatpak → /mnt/exodos/flatpak`.
 - D-1 (2026-10-16, Javier) Lite on this disk; he downloads what he wants to play. Full stays off it.
