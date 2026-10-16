@@ -59,7 +59,9 @@ Already on this machine: git, 7z, unzip, wine. Not installed: any DOSBox, any to
 
 ## KognogOS findings (the rules say: Forge first, nog first, Flatpak only when strictly needed)
 
-- **F-1** The official patch leans on Flatpak for its emulators. Our route can likely use `nog install dosbox-staging` instead; whether the patch's scripts accept a system DOSBox is unverified until we read the ReadMe.
+- **F-1** (confirmed from the ReadMe and `install_dependencies.bsh`, 15:30) The patch installs **21 Flatpaks built by eXo** (`com.retro_exo.*`: DOSBox 0.74-3, three DOSBox-ECE builds, DOSBox GridC, DOSBox Staging 0.81.2 and 0.82.0, two DOSBox-X builds, GZDoom, two ScummVM builds, Wine, VLC, mpv, Okular, Falkon, mcomix, AbiWord, Gnumeric, aria2c) on **7 Flathub runtimes** (freedesktop 23.08 + 24.08 with their 32-bit halves, GNOME 46, KDE 6.7, KDE 5.15-23.08), all user-level, no root; 86Box comes as an AppImage. Each game's `.bsh` names which build to run (`eXo/util/dosbox_linux.txt`), so a system `dosbox-staging` from nog is not a drop-in: it would mean rewriting that table and accepting conf differences. Verdict: Flatpak is strictly needed for the official route; we keep them on the project disk (`~/.local/share/flatpak` → `/mnt/exodos/flatpak`). Swapping one build for nog's is a later experiment, issue #1 stays open.
+- **F-4** (15:30) `install_dependencies.bsh` on Arch runs `sudo pacman --noconfirm -Syu` the moment **any** of its 12 tools is missing (`curl ffmpeg flatpak fold perl python3 sed sha256sum tput unzip wget zip`). On a tier-held KognogOS that is a silent full upgrade. `zip` was the one missing here. Our `scripts/exo-install-dependencies.sh` refuses to start unless all 12 are present, so the branch can never fire.
+- **F-5** (15:30) The `.command` wrappers only run from 18 known terminals (konsole, gnome-terminal, xterm…) by looking at the parent process name; otherwise "Weird system achievement unlocked". Alacritty is not on the list. The `.bsh` scripts under `eXo/util/` work from any shell, so we call those.
 - **F-2** No launcher (exogui, Exodium, eisoDOS) is packaged for Arch. Exodium and exogui ship as AppImages. A packaging gap, and a candidate for an AUR recipe of ours.
 - **F-3** The patch's launch scripts are `.command` / `.bsh` files meant to be double-clicked in a file manager; on Sway with no file manager that is a terminal job. Fine for us.
 
@@ -76,7 +78,7 @@ SMART on 2026-10-16: overall PASSED, but 129,825 hours on (14.8 years), **167 pe
 ## Open questions
 
 1. Which disk (see SMART above) and full or Lite first.
-2. What `install_dependencies.command` installs on Arch (needs the patch's ReadMe).
+2. ~~What `install_dependencies.command` installs on Arch~~ answered: F-1, F-4.
 3. Whether exogui runs well under Sway/Wayland (Electron; may need `--ozone-platform=wayland`).
 4. Whether our DOSBox Staging from chaotic-aur satisfies the patch's game `.conf` files (the wiki says the alternate launcher must be DOSBox Staging "to not break conf files").
 
