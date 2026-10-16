@@ -3,18 +3,22 @@
 *Kept current as we go. Newest at the top of each list.*
 
 ## Next
-- [ ] 5. `scripts/exo-setup.sh` (the Setup eXoDOS step, answers D-3), then `exogui.command` under Sway
-- [ ] 4. `scripts/exo-install-dependencies.sh` RUNNING 15:24 (7 runtimes + 21 eXo flatpaks onto `/mnt/exodos/flatpak`)
+- [ ] 7. Javier plays Monkey Island (CD version = 3 in DOSBox's menu) and says how it feels: sound, speed, window, mouse
+- [ ] 6. A game started from exogui's Play button (so far every step ran from our scripts); check what exogui needs on Sway for that
 - [ ] 1b. `dosbox-staging` through nog: blocked by a chaotic-aur 404 on two-day-old lists; nog's answer is a full `nog update` (Javier's call), or the patch's own installer may make it moot
 
 ## Then
-- [ ] Run `Setup eXoDOS.command`, then `exogui.command`; first game: Secret of Monkey Island
 - [ ] Check exogui (Electron) under Sway/Wayland
 - [ ] Decide: official patch route vs Exodium (native launcher, 0.15.4 on 2026-10-15)
-- [ ] Findings as GitHub issues (F-1 Flatpak, F-2 nothing on the AUR, F-3 `.command` scripts need a terminal on Sway)
+- [ ] exogui 1.1.11 (bundled) vs 1.2.58 (GitHub): try the newer AppImage in `exogui/`
+- [ ] Stop/clean: `scripts/exo-stop.sh` (transmission by PID file, exogui by PID file, a running game by `/mnt/exodos/.exo-play-<g>.pid`)
 - [ ] Full release later, on a healthier disk or after an 18-hour write/read test of this one
 
 ## Done
+- [x] 2026-10-16 16:09 **First game.** `scripts/exo-play.sh mi1`: downloaded 1.65 GB from the torrent in <3 min, unpacked, DOSBox ECE r4482 (eXo Flatpak) opened Monkey Island's version menu. Two driver fixes on the way (`change any of these?` → No; the version menu → IBM/VGA)
+- [x] 2026-10-16 15:46 exogui runs on Sway (XWayland): 7,667 games listed; `docs/images/2026-10-16-exogui-first-launch.png`
+- [x] 2026-10-16 15:44 `scripts/exo-setup.sh`: "Your eXoPacks are now setup" (windowed 1280x960, aspect on, no icon)
+- [x] 2026-10-16 15:35 `scripts/exo-install-dependencies.sh`: 7 runtimes + 21 eXo Flatpaks on `/mnt/exodos/flatpak`, 8.9 GB, NVIDIA GL pulled automatically
 - [x] 2026-10-16 15:23 Lite + Linux patch fully downloaded (9.3 GB); ReadMe read; F-4 #5, F-5 #6 opened; `zip` installed through nog so F-4 can't bite
 - [x] 2026-10-16 15:15 Lite + Linux patch torrents started (`scripts/torrent-start.sh`, 31 MB/s, the USB 2.0 ceiling); `scripts/torrent-status.sh` shows progress
 - [x] 2026-10-16 `transmission-cli` installed through nog

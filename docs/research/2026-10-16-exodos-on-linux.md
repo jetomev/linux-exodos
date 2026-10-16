@@ -79,6 +79,8 @@ SMART on 2026-10-16: overall PASSED, but 129,825 hours on (14.8 years), **167 pe
 
 `scripts/exo-install-dependencies.sh` (10 min: 7 runtimes + 21 eXo Flatpaks, 8.9 GB on the disk, NVIDIA GL extension pulled automatically) → `scripts/exo-setup.sh` (9 min, "Your eXoPacks are now setup. Enjoy!", windowed 1280x960, aspect on) → `exogui.command` opens through XWayland on Sway: 7,667 games listed, search, filters, playlists. Screenshot: `docs/images/2026-10-16-exogui-first-launch.png`. The collection is 29 GB on the disk after setup. exogui bundled with the patch is 1.1.11 (the GitHub release is 1.2.58).
 
+**First game, 16:09:** `scripts/exo-play.sh mi1` answered "install? y", "download? Y" (1.65 GB out of the torrent, under 3 minutes, 8 peers), unpacked 1.7 GB, kept the global settings, picked "IBM" among Hercules / IBM / ScummVM, and DOSBox ECE r4482 (the eXo Flatpak, in a bwrap sandbox) opened The Secret of Monkey Island's own menu (EGA / VGA / CD). Screenshot `docs/images/2026-10-16-monkey-island-first-run.png`. Two of our driver's rules were wrong on the way and fixed the same hour; the fail-safe (stop after 10 quiet minutes on an unknown question) caught both. Not yet proven: sound, speed, a game started from exogui's Play button.
+
 ## Open questions
 
 1. Which disk (see SMART above) and full or Lite first.

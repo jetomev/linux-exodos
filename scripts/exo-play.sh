@@ -10,7 +10,7 @@ S=$(ls "$D"/*\).bsh 2>/dev/null | head -1); [ -n "$S" ] || { echo "!! no launche
 LOG=$P/logs/exo-play-$g-$(date +%Y%m%d-%H%M%S).log; ln -sfn "$LOG" "$P/logs/exo-play-$g-latest"
 echo "== exo-play.sh $g $(date '+%F %T')  $(basename "$S")" | tee -a "$LOG"
 mountpoint -q /mnt/exodos || { echo "!! /mnt/exodos not mounted" | tee -a "$LOG"; exit 1; }
-python3 -I "$P/scripts/exo-driver.py" --mode play "$D" "$S" "$LOG"; rc=$?
+python3 -I "$P/scripts/exo-driver.py" --mode play "$D" "$S" "$LOG" & echo $! > "/mnt/exodos/.exo-play-$g.pid"; wait $!; rc=$?; rm -f "/mnt/exodos/.exo-play-$g.pid"
 echo "-- driver exit $rc $(date '+%F %T')" | tee -a "$LOG"
 ls "$X/eXo/eXoDOS/$(basename "${S%.bsh}").zip" "$X/eXo/eXoDOS/$g" 2>&1 | head -3 | tee -a "$LOG"
 exit $rc

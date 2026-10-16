@@ -30,12 +30,23 @@ PLAY = [
     (r"\(y/n\)\?", "y\n"),                                   # launch.bsh: game not installed, install it?
     (r"Please Choose: \[C,U\]", "C\n"),                      # already installed: Continue, not Uninstall
     (r"backup your saves.*\[Y\]es or \[N\]o", "Y\n"),
-    (r"aspect.*\[Y\]es or \[N\]o, or \[\?\]", "Y\n"),        # per-game aspect ratio
+    (r"change any of these\?.*\[Y\]es or \[N\]o, or \[\?\]", "N\n"),  # keep the global settings (window size, aspect)
     (r"scaler.*\[Y\]es or \[N\]o, or \[\?\]", "N\n"),        # keep the default scaler (normal2x)
+    (r"\[F\]ullscreen or \[W\]indowed.*Please choose \(F/W\)", "F\n" if fullscreen else "W\n"),
+    (r"desktop resolution.*Please choose \(L/M/S\)", size + "\n"),
+    (r"Aspect Correction.*\[Y\]es or \[N\]o", "Y\n"),
     (r"\[Y\]es or \[N\]o, or \[D\]elete your Save", "Y\n"),  # restore saves
+    (r"Press 1 to play.*Please Choose:", "VERSION"),         # several versions: pick the IBM/VGA/CD one, else 1
     (r"Press any key", "x"),
 ]
 RULES = SETUP if mode == "setup" else PLAY
+
+def pick_version(tail):
+    opts = re.findall(r"Press (\d) to play ([^\n]*)", tail)
+    for want in ("IBM", "VGA", "CD", "EGA"):
+        for n, desc in opts:
+            if want.lower() in desc.lower(): return n + "\n"
+    return (opts[0][0] if opts else "1") + "\n"
 
 pid, fd = pty.fork()
 if pid == 0:
@@ -56,6 +67,7 @@ try:
         tail = strip(buf[-1500:])
         for pat, ans in RULES:
             if re.search(pat, tail, re.S | re.I):
+                if ans == "VERSION": ans = pick_version(tail)
                 os.write(fd, ans.encode()); log.write(f"\n[driver] matched '{pat}' → {ans!r}\n".encode())
                 answered.append((pat, ans.strip())); buf = b""; break
         else:
