@@ -3,12 +3,12 @@
 *Kept current as we go. Newest at the top of each list.*
 
 ## Next
-- [ ] 6. A game started from exogui's Play button (#7); so far every step ran from our scripts
+- [x] 6. A game started from exogui's Play button (#7) — 2026-10-17, Javier: "installing and running games perfectly": Double Dragon I/II/III and Dune installed and played from exogui. Works because Konsole is installed (on the wrappers' 18-terminal list); #6 stays open for Alacritty alone
 - [ ] 1b. `dosbox-staging` through nog: blocked by a chaotic-aur 404 on two-day-old lists; nog's answer is a full `nog update` (Javier's call), or the patch's own installer may make it moot
 
 ## Then
 - [ ] `scripts/exo-check.sh`: compare the NVIDIA driver version with the Flatpak GL extension (`org.freedesktop.Platform.GL.nvidia-*`); mismatch after a `nog update` = games won't start until `flatpak update --user -y` (eXo ReadMe, Troubleshooting). Today both are 615.71.09.
-- [ ] Check exogui (Electron) under Sway/Wayland
+- [x] Check exogui (Electron) under Sway/Wayland — runs through XWayland, Install and Play both work (2026-10-17)
 - [ ] Decide: official patch route vs Exodium (native launcher, 0.15.4 on 2026-10-15)
 - [ ] exogui 1.1.11 (bundled) vs 1.2.58 (GitHub): try the newer AppImage in `exogui/`
 - [ ] Stop/clean: `scripts/exo-stop.sh` (transmission by PID file, exogui by PID file, a running game by `/mnt/exodos/.exo-play-<g>.pid`)
